@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div
+        {
+            display: block;
+        }
+        #div1
+        {
+            visibility: hidden;
+            height: 100px;
+            background-color: deeppink;
+        }
+        #div2
+        {
+            display: block;
+            height: 100px;
+            background-color: green;
+        }
+        .highlight
+        {
+            width: 1000px;
+            color: red;
+        }
+        .inlineblock
+        {
+            width: 200px;
+            display: inline-block;
+            background-color: skyblue;
+        }
+        .inline
+        {
+            width: 200px;
+            display: inline;
+            background-color: pink;
+        }
+        .inlineMargine
+        {
+            width: 200px;
+            display: inline-block;
+            background-color: lightskyblue;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="div1">deppink</div>
+<div id="div2">green</div>
+<span>나는</span>
+<span class="highlight">천재</span>
+<span>다</span>
+<span class="inlineblock">inline-block</span>
+<span class="inline">inline</span>
+<span class="inlineMargine">inlineblockMargine</span>
+<p>자동엔터</p>
 </body>
 </html>

@@ -1,10 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>DOM 조작</title>
+    <script>
+        document.write("Hello");
+        document.writeln("<b>Hello</b><br>");
+        document.write("<b>Hello</b>");
+
+        let player;
+
+        function divfunc()
+        {
+            let div1 = document.getElementById("id_div");
+            let divList = document.getElementsByClassName("class_div"); // 해당 클래스 요소들(복수)
+        }
+
+        function changeTextColor()
+        {
+            const div =  document.getElementById("id_div");
+            div.style.color = "red";
+        }
+
+        function changeClassStyle1()
+        {
+            const div =  document.getElementById("id_div");
+            div.className = "style1";
+        }
+
+        function changeClassStyle2()
+        {
+            const div =  document.getElementById("id_div");
+            div.className = "style2";
+        }
+
+        function inputTag()
+        {
+            const div = document.getElementById("background");
+            div.innerHTML = "<b>hello</b><br>";
+            div.innerText = "<b>hello</b> 텍스트그대로";
+        }
+
+        function load()
+        {
+            let div1 = document.getElementById("id_div");
+            console.log(div1);
+
+            window.addEventListener("keydown", (event)=> {
+                if (event.key === "ArrowLeft")
+                {
+                    console.log("왼쪽");
+                }
+                else if (event.key === "ArrowRight")
+                {
+                    console.log("오른쪽");
+                }
+                else if (event.key === "ArrowUp")
+                {
+                    console.log("위");
+                }
+                else if (event.key === "ArrowDown")
+                {
+                    console.log("아래");
+                }
+
+            });
+        }
+    </script>
+
+    <style>
+        .style1
+        {
+            background-color: green;
+        }
+        .style2
+        {
+            background-color: beige;
+        }
+
+        div{
+
+        }
+        #id_div
+        {
+
+        }
+        #background {
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+        #mouse
+        {
+            width: 200px;
+            height: 200px;
+            border:  1px solid black;
+        }
+        .class_div
+        {
+
+        }
+    </style>
 </head>
 <body>
-$END$
+<button onclick="changeTextColor()">글자 색 변경 버튼</button><br>
+<button onclick="changeClassStyle1()">style1</button>
+<button onclick="changeClassStyle2()">style2</button>
+<div>div</div>
+<div id = "id_div">id_div: #</div>
+<div class="class_div">class_div: .</div>
+<div class="class_div">class_div2: .</div>
+<div id = "background" onclick="inputTag()"></div>
+<label for="type">
+    성별 :
+    <select name="type" id="type" onchange="typeChanged()">
+        <option value="man">남</option>
+        <option value="woman">여</option>
+    </select>
+
+    <script>
+        function typeChanged()
+        {
+            const type = document.getElementById("type");
+            console.log(type.value);
+        }
+    </script>
+
+    <div id="mouse" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+
+    </div>
+
+    <script>
+        function mouseOver(target)
+        {
+            target.style.backgroundColor = "grey";
+        }
+        function mouseOut(target)
+        {
+            target.style.backgroundColor = "";
+        }
+    </script>
+
+</label>
 </body>
 </html>

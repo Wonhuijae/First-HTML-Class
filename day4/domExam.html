@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Dom 실습 1</title>
+  <style>
+    div{
+      text-align: center;
+    }
+    #textArea
+    {
+      font-size: 45px;
+    }
+    .colorButton
+    {
+      visibility: hidden;
+    }
+  </style>
+  <script>
+function ButtonClick()
+{
+  let text =  document.getElementById("inputText").value.trim();
+
+  if(text === "") alert("텍스트값을 입력해 주세요");
+  else
+  {
+    showButtons();
+    const textDisplay = document.getElementById("textArea");
+    textDisplay.innerText = text;
+    textDisplay.style.color = "black";
+  }
+}
+
+function showButtons()
+{
+  let btns = document.getElementsByClassName("colorButton");
+  for(let i = 0; i<btns.length;i++)
+  {
+    btns[i].style.visibility = "visible";
+  }
+}
+
+function changeColor(button)
+{
+  let textArea = document.getElementById("textArea");
+  alert(`${button.innerText}색으로 변경됩니다.`);
+
+  textArea.style.color = button.style.backgroundColor;
+}
+  </script>
 </head>
 <body>
-$END$
+<div>
+  텍스트 입력하기<br>
+  <label for="inputText"></label>
+  <input id="inputText">
+  <button onclick="ButtonClick()">확인</button>
+  <br>
+  <br>
+  <button onclick="changeColor(this)" class="colorButton" style="background-color: red; color:white">빨강</button>
+  <button onclick="changeColor(this)" class="colorButton" style="background-color: blue; color:white">파랑</button>
+  <button onclick="changeColor(this)" class="colorButton" style="background-color: green; color:white">초록</button>
+</div>
+<div id="textArea">
+  Sample
+</div>
 </body>
 </html>

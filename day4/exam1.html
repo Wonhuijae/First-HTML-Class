@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>이름 입력</title>
+<script>
+  function check()
+  {
+    let name = document.getElementById("name").value.trim();
+    if (name===null) name = prompt("이름을 입력하세요");
+    else alert(`${name}님 안녕하세요`);
+  }
+</script>
 </head>
 <body>
-$END$
+<label for="name"></label>
+<input type="text" id="name">
+<button onclick="check()">입력</button>
 </body>
 </html>
