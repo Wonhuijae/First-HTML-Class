@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function changeBlur(target)
+        {
+            console.log(target.checked);
+
+            if(target.checked)
+            {
+                $("#photo").css("filter", "blur(5px)");
+            }
+            else
+            {
+                $("#photo").css("filter", "blur(0px)");
+            }
+        }
+
+        function changeWidth() {
+            const inputWidth = $("#photoWidth").val()
+            $("#photo").attr("width", inputWidth);
+        }
+
+        function insert() {
+            $("#div2").append("<div>삽입</div>");
+        }
+
+        $(() => {
+            console.log("aa");
+
+            let div1;
+            //div1 = document.getElementsByTagName("div");
+            div1 = $("div1");
+            console.log(div1);
+
+            let div2;
+            let nativeDiv2 = document.getElementById("div2");
+            div2 = $("#div2");
+            console.log(div2);
+            console.log(nativeDiv2);
+
+            let div3;
+            //div3 = document.getElementsByClassName("div3");
+            div3 = $(".div3");
+            console.log(div3);
+
+        });
+    </script>
+    <style>
+        .filter {
+            filter: blur(5px);
+        }
+    </style>
 </head>
 <body>
-$END$
+<div>div1</div>
+<div id="div2">div2</div>
+<div class="div3">div3</div>
+<button onclick="insert()">div2와 div3 사이에 내용 넣기</button>
+<br>
+<img src="../day1/4108180.jpg" width="300px" id="photo"/>
+<br>
+<label>
+    크기:
+    <input type="text" id="photoWidth">
+</label>
+<button onclick="changeWidth()">변경</button>
+<br>
+<label>
+    뿌옇게
+    <input type="checkbox" onchange="changeBlur(this)">
+</label>
 </body>
 </html>

@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>jquery 실습 1</title>
+    <style>
+        div {
+            text-align: center;
+        }
+
+        #textArea {
+            font-size: 45px;
+        }
+
+        .colorButton {
+            visibility: hidden;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function ButtonClick() {
+            let text = $("#inputText").val();
+
+            if (text === "") alert("텍스트값을 입력해 주세요");
+            else {
+                showButtons();
+                const textDisplay = document.getElementById("textArea");
+                textDisplay.innerText = text;
+                textDisplay.style.color = "black";
+            }
+        }
+
+        function showButtons() {
+            let btns = $(".colorButton");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].style.visibility = "visible";
+            }
+        }
+
+        function changeColor(button) {
+            let textArea = $("#textArea");
+            alert(`${button.innerText}색으로 변경됩니다.`);
+
+            textArea.css("color", $(button).css("background-color"));
+        }
+    </script>
 </head>
 <body>
-
+<div>
+    텍스트 입력하기<br>
+    <label for="inputText">
+        <input id="inputText">
+        <button onclick="ButtonClick()">확인</button>
+    </label>
+    <br>
+    <br>
+    <button onclick="changeColor(this)" class="colorButton" style="background-color: red; color:white">빨강</button>
+    <button onclick="changeColor(this)" class="colorButton" style="background-color: blue; color:white">파랑</button>
+    <button onclick="changeColor(this)" class="colorButton" style="background-color: green; color:white">초록</button>
+</div>
+<div id="textArea">
+    Sample
+</div>
 </body>
 </html>
